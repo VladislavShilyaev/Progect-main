@@ -18,7 +18,7 @@
 <a class="navbar-brand" href="index.html">
 Creative<span class="text-warning">Portfolio</span>
 </a>
-<button id="themeToggle" class="btn btn-warning btn-sm ms-3" type="button">🌙 Темна тема</button>
+<button id="themeToggle" class="btn btn-outline-light btn-sm ms-2" title="Змінити тему" type="button">/</button>
 <button class="navbar-toggler" type="button"
 data-bs-toggle="collapse"
 data-bs-target="#navMenu">
@@ -27,17 +27,20 @@ data-bs-target="#navMenu">
 <div class="collapse navbar-collapse" id="navMenu">
 <ul class="navbar-nav ms-auto">
 <li class="nav-item">
-<a class="nav-link active" href="index.html">Головна</a>
+<a class="nav-link active" href="#hero">Головна</a>
 </li>
 
 <li class="nav-item">
-<a class="nav-link" href="portfolio.html">Портфоліо</a>
+<a class="nav-link" href="#about">Про мене</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="blog.html">Блог</a>
+<a class="nav-link" href="#skills">Навички</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="contact.html">Контакти</a>
+<a class="nav-link" href="#portfolio">Портфоліо</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="#contact">Контакти</a>
 </li>
 </ul>
 </div>
@@ -47,10 +50,11 @@ data-bs-target="#navMenu">
 </div>
 </nav>
 
-    <section class="hero text-center text-white py-5" style="background-color: #1a4d7a;">
+    <section id="hero" class="hero hero-section text-center text-white py-5" style="background-color: #1a4d7a;">
 <div class="container">
 <h1 class="display-4 animate-fadeInDown">
-Вітаю! Я — веб-розробник</h1>
+Привіт! Я — <span id="typingText"></span><span class="typing-cursor">|</span>
+</h1>
 <p class="lead animate-fadeInDown" style="animation-delay:0.3s">
 Створюю сучасні та зручні веб-сайти. Тут ви знайдете мої проекти, статті та контактну інформацію.</p>
 <a href="portfolio.html"
@@ -60,7 +64,7 @@ style="animation-delay:0.6s">
 </div>
 </section>
 
-    <section class="py-4">
+    <section id="about" class="py-4 about-section">
 <div class="container">
 <div class="row">
 <div class="col-md-8">
@@ -71,7 +75,7 @@ style="animation-delay:0.6s">
 </div>
 </div>
 <div class="col-md-4">
-<div class="sidebar-card">
+<div class="sidebar-card skills-section">
 <h3>Мої навички</h3>
 <div id="skillsList"></div>
 
@@ -81,6 +85,70 @@ style="animation-delay:0.6s">
 <li>Подорожі</li>
 <li>Читання книг</li>
 </ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <!-- Секція навичок -->
+    <section id="skills" class="py-5 skills-section scale-in">
+<div class="container">
+<h2 class="text-center mb-4">Мої навички</h2>
+<div class="row">
+<div class="col-md-6">
+<div class="skill-item mb-3">
+<div class="d-flex justify-content-between">
+<span>HTML5 / CSS3</span>
+<span class="skill-percent">90%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" data-target="90"></div>
+</div>
+</div>
+
+<div class="skill-item mb-3">
+<div class="d-flex justify-content-between">
+<span>JavaScript</span>
+<span class="skill-percent">75%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" data-target="75"></div>
+</div>
+</div>
+
+<div class="skill-item mb-3">
+<div class="d-flex justify-content-between">
+<span>Bootstrap</span>
+<span class="skill-percent">85%</span>
+</div>
+<div class="progress">
+<div class="progress-bar" data-target="85"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+    <section id="portfolio" class="py-5 portfolio-section">
+<div class="container">
+<h2 class="text-center mb-4">Портфоліо</h2>
+<p class="text-center mb-4">Ознайомтесь з моїми роботами та проєктами, які демонструють підхід до дизайну та розробки.</p>
+<div class="text-center">
+    <a href="portfolio.html" class="btn btn-warning btn-lg">Переглянути всі роботи</a>
+</div>
+</div>
+</section>
+
+<section id="contact" class="py-5 contact-section" style="background-color: #f8f9fa;">
+<div class="container">
+<h2 class="text-center mb-4">Контакти</h2>
+<div class="row justify-content-center">
+<div class="col-md-8">
+<p class="lead text-center">Потрібна допомога або хочете обговорити проєкт? Напишіть мені.</p>
+<div class="text-center">
+    <a href="contact.html" class="btn btn-primary btn-lg">Зв'язатися</a>
 </div>
 </div>
 </div>
@@ -120,5 +188,10 @@ style="animation-delay:0.6s">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Кастомний JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <!-- Scroll Reveal -->
+    <script src="js/scroll-reveal.js"></script>
+    <script src="js/smooth-scroll.js"></script>
+    <script src="js/typing.js"></script>
 </body>
 </html>

@@ -190,6 +190,9 @@ function displayProjects(filter) {
             gallery.appendChild(card);
         }
     }
+
+    // Зберегти поточний фільтр
+    localStorage.setItem('galleryFilter', filter);
 }
 
 // Пошук по галереї
@@ -241,6 +244,19 @@ for (let i = 0; i < filterButtons.length; i++) {
 }
 
 // Початкове відображення
-displayProjects('all');
+const savedFilter = localStorage.getItem('galleryFilter') || 'all';
+displayProjects(savedFilter);
 applyGallerySearch();
+
+// Встановити активну кнопку відповідно до збереженого фільтра
+let initialBtn = document.querySelector('.filter-btn[data-category="' + savedFilter + '"]');
+if (initialBtn) {
+    let activeBtn = document.querySelector('.filter-btn.active');
+    if (activeBtn) {
+        activeBtn.classList.remove('active', 'btn-primary');
+        activeBtn.classList.add('btn-outline-primary');
+    }
+    initialBtn.classList.add('active', 'btn-primary');
+    initialBtn.classList.remove('btn-outline-primary');
+}
 

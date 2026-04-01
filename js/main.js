@@ -87,20 +87,6 @@ if (scrollTopBtn) {
     });
 }
 
-// Перемикач теми
-let themeToggle = document.getElementById('themeToggle');
-if (themeToggle) {
-    themeToggle.addEventListener('click', function () {
-        document.body.classList.toggle('dark-theme');
-
-        if (document.body.classList.contains('dark-theme')) {
-            themeToggle.innerHTML = '☀️ Світла тема';
-        } else {
-            themeToggle.innerHTML = '🌙 Темна тема';
-        }
-    });
-}
-
 // Масив навичок
 let skills = [
     { name: 'HTML5 / CSS3', level: 90 },

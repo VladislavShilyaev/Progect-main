@@ -879,22 +879,40 @@ body {
 }
 
 /* Темна тема */
+/* Темна тема — css/style.css */
 body.dark-theme {
-    background-color: #1a1a1a;
-    color: #ffffff;
+    background-color: #1a1a2e;
+    color: #e0e0e0;
 }
 
 body.dark-theme .navbar {
-    background-color: #2c2c2c !important;
+    background-color: #16213e !important;
 }
 
 body.dark-theme .card {
-    background-color: #2c2c2c;
-    color: #ffffff;
+    background-color: #16213e;
+    color: #e0e0e0;
+    border-color: #2c2c54;
 }
 
 body.dark-theme footer {
-    background-color: #2c2c2c !important;
+    background-color: #0f0f1a;
+}
+
+/* Toast welcome back */
+.welcome-toast {
+    position: fixed;
+    right: 20px;
+    bottom: 90px;
+    z-index: 3000;
+    max-width: 320px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(22, 33, 62, 0.95);
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    animation: fadeIn 0.25s ease;
 }
 
 /* Додаткові правила для темної теми */
@@ -942,6 +960,22 @@ body.dark-theme nav a:hover {
 body.dark-theme nav a.active {
     border-bottom-color: #D4A843;
 }
+
+/* Scroll Reveal — стани */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Варіації анімацій */
+.fade-in-left.hidden { transform: translateX(-30px); }
+.fade-in-right.hidden { transform: translateX(30px); }
+.scale-in.hidden { transform: scale(0.9); }
 
 /* Lightbox стилі */
 @keyframes fadeIn {
@@ -1029,4 +1063,17 @@ body.dark-theme .lightbox-nav button {
     background: #2c2c2c;
     color: #ffffff;
     border-color: @primary-color;
+}
+
+.typing-cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: #ffc107;
+    margin-left: 2px;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }

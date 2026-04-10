@@ -49,46 +49,73 @@ data-bs-target="#navMenu">
 </div>
 </nav>
 
-<div class="container py-4 contact-section">
+<section id="contact" class="py-5">
+<div class="container">
+<h2 class="text-center mb-4">Зв'яжіться зі мною</h2>
 <div class="row justify-content-center">
-
 <div class="col-md-8">
-<h2 style="margin-bottom: 20px;">
-👤 <strong>Форма контактів</strong>
-<span class="badge bg-primary">Forms</span>
-<span class="badge bg-danger">Alerts</span>
-</h2>
-
-<div class="alert alert-info" role="alert">
-<strong>ℹ️ Заповніть форму</strong> — в отповідь протягом 24 годин.
-</div>
-
-<form id="contactForm" onsubmit="return validateForm()">
-<div class="row mb-3">
-<div class="col-md-6">
+<form id="contactForm" novalidate>
+<div class="mb-3">
 <label class="form-label">Ім'я *</label>
-<input type="text" class="form-control" id="name" required>
-<div class="error-message" id="nameError"></div>
-</div>
-<div class="col-md-6">
-<label class="form-label">Email *</label>
-<input type="email" class="form-control" id="email" required>
-<div class="error-message" id="emailError"></div>
-</div>
+<input type="text" id="nameInput" class="form-control" required>
+<div class="validation-msg"></div>
 </div>
 <div class="mb-3">
-<label class="form-label">Повідомлення *</label>
-<textarea class="form-control" id="message" rows="4" onkeyup="countCharacters()" required></textarea>
-<div class="error-message" id="messageError"></div>
-<small id="charCount" class="text-muted">0 символів</small>
+<label class="form-label">Email *</label>
+<input type="email" id="emailInput" class="form-control" required>
+<div class="validation-msg"></div>
 </div>
-<button type="submit" class="btn btn-primary">✉ Надіслати</button>
+<div class="mb-3">
+<label class="form-label">Телефон</label>
+<input type="tel" id="phoneInput" class="form-control">
+<div class="validation-msg"></div>
+</div>
+<div class="mb-3">
+<label>Тема повідомлення *</label>
+<input type="text" id="subjectInput" class="form-control" required>
+<div class="validation-msg"></div>
+</div>
+<div class="mb-3">
+<label>Повідомлення *</label>
+<textarea id="messageInput" class="form-control" rows="4" required></textarea>
+<div class="validation-msg"></div>
+</div>
+<button type="submit" id="submitBtn" class="btn btn-primary" disabled>
+Надіслати
+</button>
 </form>
-<div id="successMessage" class="alert alert-success mt-3" style="display:none;">
-Дякуємо! Ваше повідомлення надіслано.
 </div>
 </div>
 </div>
+</section>
+
+<!-- Панель кастомізації -->
+<div class="container mt-5 mb-5">
+    <div class="card" id="customPanel">
+        <div class="card-header bg-primary text-white">
+            <strong>🎨 Кастомізація інтерфейсу</strong>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">Основний колір (Hue)</label>
+                    <input type="range" id="hueSlider" class="form-range" min="0" max="360" value="210">
+                    <small class="text-muted" id="hueValue">Значення: 210°</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">Розмір шрифту заголовків</label>
+                    <input type="range" id="fontSlider" class="form-range" min="16" max="36" value="24">
+                    <small class="text-muted" id="fontValue">Значення: 24px</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">border-radius (округлення)</label>
+                    <input type="range" id="radiusSlider" class="form-range" min="0" max="25" value="8">
+                    <small class="text-muted" id="radiusValue">Значення: 8px</small>
+                </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="resetBtn">Скидання налаштувань</button>
+        </div>
+    </div>
 </div>
 
 
@@ -127,6 +154,12 @@ data-bs-target="#navMenu">
     <!-- Кастомний JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/storage.js"></script>
+    <!-- Валідація форми -->
+    <script src="js/form-validation.js"></script>
+    <!-- Персоналізація інтерфейсу -->
+    <script src="js/customization.js"></script>
+    <!-- Drag and Drop для галереї -->
+    <script src="js/drag-sort.js"></script>
     <!-- Scroll Reveal -->
     <script src="js/scroll-reveal.js"></script>
     <script src="js/smooth-scroll.js"></script>

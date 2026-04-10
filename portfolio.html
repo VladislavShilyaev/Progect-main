@@ -62,6 +62,129 @@ data-bs-target="#navMenu">
     <div class="row g-4" id="gallery"></div>
 </div>
 
+<!-- Секція інтерактивної таблиці проектів -->
+<div class="container py-5">
+    <h3 class="mb-4">📊 Таблиця проектів з динамічними ефектами</h3>
+    
+    <!-- Контроли персоналізації -->
+    <div class="row mb-4 control-panel">
+        <div class="col-md-6">
+            <label>Розмір таблиці (масштаб): <span id="scaleValue">100</span>%</label>
+            <input type="range" id="scaleSlider" class="form-range" min="80" max="120" value="100">
+        </div>
+        <div class="col-md-6">
+            <label>Прозорість рядків: <span id="opacityValue">100</span>%</label>
+            <input type="range" id="opacitySlider" class="form-range" min="50" max="100" value="100">
+        </div>
+    </div>
+
+    <!-- Таблиця з можливістю сортування -->
+    <div class="table-responsive">
+        <table id="projectsTable" class="table table-hover projects-table">
+            <thead class="table-light">
+                <tr>
+                    <th class="sortable" style="cursor: pointer;">⇅ Назва <small>(клік для сортування)</small></th>
+                    <th class="sortable" style="cursor: pointer;">⇅ Категорія</th>
+                    <th class="sortable" style="cursor: pointer;">⇅ Дата</th>
+                    <th>Статус</th>
+                    <th>Дії</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <!-- Рядки будуть додані JavaScript -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Сортування drag-and-drop -->
+    <div class="mt-5">
+        <h4>🔄 Перетягніть для зміни порядку</h4>
+        <ul id="dragDropList" class="list-group" style="cursor: grab;">
+            <!-- Елементи для drag-and-drop будуть додані JavaScript -->
+        </ul>
+    </div>
+
+    <!-- Таблиця проектів з ефектами сортування -->
+    <div class="mt-5 mb-5">
+        <h3 class="mb-4">📊 Таблиця проектів із сортуванням</h3>
+        <table class="table table-hover" id="projectsTable">
+            <thead class="table-primary">
+                <tr>
+                    <th onclick="sortTable(0)" style="cursor: pointer;">Проект ⇅</th>
+                    <th onclick="sortTable(1)" style="cursor: pointer;">Категорія ⇅</th>
+                    <th onclick="sortTable(2)" style="cursor: pointer;">Статус ⇅</th>
+                    <th>Прогрес</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Інтернет-магазин</td>
+                    <td><span class="badge bg-primary">Веб-дизайн</span></td>
+                    <td><span class="badge bg-success">Готово</span></td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>Мобільний додаток</td>
+                    <td><span class="badge bg-info">Мобільні</span></td>
+                    <td><span class="badge bg-success">Готово</span></td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>CRM система</td>
+                    <td><span class="badge bg-primary">Веб-дизайн</span></td>
+                    <td><span class="badge bg-warning text-dark">У процесі</span></td>
+                    <td>75%</td>
+                </tr>
+                <tr>
+                    <td>UI-кіт для стартапу</td>
+                    <td><span class="badge bg-success">UI/UX</span></td>
+                    <td><span class="badge bg-success">Готово</span></td>
+                    <td>100%</td>
+                </tr>
+                <tr>
+                    <td>Портал E-learning</td>
+                    <td><span class="badge bg-primary">Веб-дизайн</span></td>
+                    <td><span class="badge bg-danger">Планування</span></td>
+                    <td>20%</td>
+                </tr>
+                <tr>
+                    <td>Фітнес-трекер</td>
+                    <td><span class="badge bg-info">Мобільні</span></td>
+                    <td><span class="badge bg-warning text-dark">У процесі</span></td>
+                    <td>60%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Панель кастомізації -->
+    <div class="card mt-5 mb-5" id="customPanel">
+        <div class="card-header bg-primary text-white">
+            <strong>🎨 Кастомізація інтерфейсу</strong>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">Основний колір (Hue)</label>
+                    <input type="range" id="hueSlider" class="form-range" min="0" max="360" value="210">
+                    <small class="text-muted" id="hueValue">Значення: 210°</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">Розмір шрифту заголовків</label>
+                    <input type="range" id="fontSlider" class="form-range" min="16" max="36" value="24">
+                    <small class="text-muted" id="fontValue">Значення: 24px</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">border-radius (округлення)</label>
+                    <input type="range" id="radiusSlider" class="form-range" min="0" max="25" value="8">
+                    <small class="text-muted" id="radiusValue">Значення: 8px</small>
+                </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="resetBtn">Скидання налаштувань</button>
+        </div>
+    </div>
+</div>
+
     <footer class="bg-dark text-white py-4">
 <div class="container">
 <div class="row">
@@ -98,6 +221,14 @@ data-bs-target="#navMenu">
     <script src="js/storage.js"></script>
     <!-- Динамічна галерея -->
     <script src="js/gallery.js"></script>
+    <!-- Інтерактивна таблиця -->
+    <script src="js/interactive-table.js"></script>
+    <!-- Ефекти таблиці проектів -->
+    <script src="js/table-effects.js"></script>
+    <!-- Персоналізація інтерфейсу -->
+    <script src="js/customization.js"></script>
+    <!-- Drag and Drop для галереї -->
+    <script src="js/drag-sort.js"></script>
     <!-- Scroll Reveal -->
     <script src="js/scroll-reveal.js"></script>
     <script src="js/smooth-scroll.js"></script>

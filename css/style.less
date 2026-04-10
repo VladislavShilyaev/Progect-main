@@ -1,3 +1,10 @@
+// ===== CSS-ЗМІННІ ДЛЯ КАСТОМІЗАЦІЇ =====
+:root {
+    --primary-hue: 210;
+    --heading-size: 24px;
+    --border-radius: 8px;
+}
+
 // ===== ЗМІННІ =====
 @primary-color: #2E75B6;
 @accent-color: #D4A843;
@@ -1076,4 +1083,444 @@ body.dark-theme .lightbox-nav button {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+}
+
+// ===== ІНТЕРАКТИВНА ТАБЛИЦЯ =====
+.projects-table {
+    transition: all 0.3s ease;
+    margin-top: 30px;
+
+    thead {
+        background-color: @primary-color;
+        color: @text-light;
+        
+        th {
+            font-weight: bold;
+            text-align: left;
+            padding: 12px;
+            border: none;
+
+            &.sortable {
+                cursor: pointer;
+                user-select: none;
+                
+                &:hover {
+                    background-color: darken(@primary-color, 10%);
+                }
+            }
+        }
+    }
+
+    tbody tr {
+        border-bottom: 1px solid @border-color;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background-color: #f0f8ff;
+            .box-shadow(0, 2px, 8px, rgba(46, 117, 182, 0.1));
+        }
+
+        td {
+            padding: 12px;
+            vertical-align: middle;
+
+            .btn {
+                font-size: 0.85rem;
+                padding: 6px 12px;
+            }
+        }
+    }
+}
+
+// ===== КОНТРОЛЬНА ПАНЕЛЬ ПЕРСОНАЛІЗАЦІЇ =====
+.control-panel {
+    background: @light-bg;
+    padding: 20px;
+    border-radius: @border-radius;
+    .box-shadow(0, 2px, 8px, @shadow-light);
+    margin-bottom: 30px;
+
+    label {
+        font-weight: bold;
+        margin-bottom: 10px;
+        display: block;
+        color: @primary-color;
+
+        span {
+            color: @accent-color;
+            font-weight: bold;
+        }
+    }
+
+    .form-range {
+        height: 6px;
+        border-radius: 3px;
+        
+        &::-webkit-slider-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: @primary-color;
+            cursor: pointer;
+            border: 2px solid @accent-color;
+        }
+
+        &::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: @primary-color;
+            cursor: pointer;
+            border: 2px solid @accent-color;
+        }
+    }
+}
+
+// ===== DRAG-AND-DROP СПИСОК =====
+#dragDropList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .draggable-item {
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        background: @white;
+        border: 2px solid @border-color;
+        border-radius: @border-radius;
+        cursor: grab;
+        .transition(all 0.2s ease);
+        user-select: none;
+
+        &:active {
+            cursor: grabbing;
+        }
+
+        &:hover {
+            border-color: @primary-color;
+            .box-shadow(0, 4px, 12px, rgba(46, 117, 182, 0.2));
+            transform: translateY(-2px);
+        }
+
+        span {
+            font-weight: 500;
+
+            &:first-child {
+                color: @text-color;
+            }
+
+            &.badge {
+                margin-left: auto;
+            }
+        }
+    }
+
+    .draggable-item.dragging {
+        opacity: 0.5;
+        transform: scale(0.95);
+    }
+}
+
+// ===== ВАЛІДАЦІЯ ФОРМИ =====
+.form-control {
+    border: 1px solid @border-color;
+    .transition(border-color, box-shadow);
+    
+    &:focus {
+        border-color: @primary-color;
+        box-shadow: 0 0 0 0.2rem rgba(46, 117, 182, 0.25);
+    }
+
+    &.is-valid {
+        border-color: #28a745;
+    }
+
+    &.is-invalid {
+        border-color: #dc3545;
+    }
+}
+
+.validation-msg {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: 500;
+    min-height: 20px;
+}
+
+// ===== ТАБЛИЦЯ ПРОЕКТІВ З ЕФЕКТАМИ =====
+#projectsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+
+    thead {
+        background-color: @primary-color;
+        color: @text-light;
+
+        th {
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+            cursor: pointer;
+            user-select: none;
+            .transition(background-color 0.2s);
+
+            &:hover {
+                background-color: darken(@primary-color, 10%);
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid @border-color;
+            .transition(background-color 0.2s, box-shadow 0.2s);
+
+            td {
+                padding: 12px 15px;
+                vertical-align: middle;
+            }
+
+            &:hover {
+                background-color: #e8f4fd !important;
+                .box-shadow(0, 2px, 8px, rgba(46, 117, 182, 0.1));
+            }
+
+            &.selected {
+                background-color: #fff3cd;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: #ffe69c;
+                }
+            }
+
+            &:active {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .badge {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+        border-radius: 12px;
+        font-weight: 600;
+
+        &.bg-primary {
+            background-color: @primary-color !important;
+        }
+
+        &.bg-success {
+            background-color: #28a745 !important;
+        }
+
+        &.bg-warning {
+            background-color: #ffc107 !important;
+
+            &.text-dark {
+                color: #000 !important;
+            }
+        }
+
+        &.bg-danger {
+            background-color: #dc3545 !important;
+        }
+
+        &.bg-info {
+            background-color: #17a2b8 !important;
+        }
+    }
+}
+
+// ===== АДАПТИВНІВ ДЛЯ ТАБЛИЦІ =====
+@media (max-width: @tablet) {
+    #projectsTable {
+        font-size: 0.9rem;
+
+        thead th,
+        tbody td {
+            padding: 10px 8px;
+        }
+    }
+}
+
+@media (max-width: @mobile) {
+    #projectsTable {
+        font-size: 0.8rem;
+
+        thead th,
+        tbody td {
+            padding: 8px 6px;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            font-size: 0.75rem;
+        }
+    }
+}
+
+// ===== ПАНЕЛЬ КАСТОМІЗАЦІЇ =====
+#customPanel {
+    background: linear-gradient(135deg, @light-bg 0%, #ffffff 100%);
+    border: 2px solid @primary-color;
+    .border-radius(var(--border-radius));
+    .box-shadow(0, 4px, 20px, rgba(46, 117, 182, 0.15));
+    .transition(all 0.3s ease);
+
+    &:hover {
+        .box-shadow(0, 6px, 25px, rgba(46, 117, 182, 0.25));
+        transform: translateY(-2px);
+    }
+
+    .card-header {
+        background-color: @primary-color !important;
+        color: @text-light;
+        font-weight: bold;
+        .border-radius(calc(var(--border-radius) - 2px)) !important;
+        border-bottom: 3px solid @accent-color;
+    }
+
+    .card-body {
+        padding: 30px 25px;
+
+        @media (max-width: @mobile) {
+            padding: 20px 15px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: @primary-color;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+
+            @media (max-width: @mobile) {
+                font-size: 0.85rem;
+            }
+        }
+
+        .form-range {
+            height: 8px;
+            border-radius: 4px;
+            background: @light-bg;
+            cursor: pointer;
+            margin-bottom: 6px;
+
+            &::-webkit-slider-thumb {
+                width: 22px;
+                height: 22px;
+                background: linear-gradient(135deg, @primary-color, darken(@primary-color, 10%));
+                cursor: grab;
+                border: 2px solid @accent-color;
+                border-radius: 50%;
+                .box-shadow(0, 2px, 8px, rgba(46, 117, 182, 0.3));
+                .transition(all 0.2s);
+
+                &:active {
+                    cursor: grabbing;
+                    transform: scale(1.1);
+                    .box-shadow(0, 4px, 12px, rgba(46, 117, 182, 0.5));
+                }
+            }
+
+            &::-moz-range-thumb {
+                width: 22px;
+                height: 22px;
+                background: linear-gradient(135deg, @primary-color, darken(@primary-color, 10%));
+                cursor: grab;
+                border: 2px solid @accent-color;
+                border-radius: 50%;
+                .box-shadow(0, 2px, 8px, rgba(46, 117, 182, 0.3));
+                .transition(all 0.2s);
+
+                &:active {
+                    cursor: grabbing;
+                    transform: scale(1.1);
+                    .box-shadow(0, 4px, 12px, rgba(46, 117, 182, 0.5));
+                }
+            }
+
+            &::-webkit-slider-runnable-track {
+                background: linear-gradient(90deg, #e0e0e0, @primary-color);
+                height: 8px;
+                border-radius: 4px;
+            }
+
+            &::-moz-range-track {
+                background: linear-gradient(90deg, #e0e0e0, @primary-color);
+                height: 8px;
+                border-radius: 4px;
+            }
+        }
+
+        small {
+            display: block;
+            margin-bottom: 20px;
+            font-weight: 500;
+            color: @primary-color;
+            font-size: 0.8rem;
+        }
+
+        #resetBtn {
+            margin-top: 10px;
+            .transition(all 0.3s);
+
+            &:hover {
+                transform: translateY(-2px);
+                .box-shadow(0, 4px, 12px, rgba(108, 117, 125, 0.3));
+            }
+        }
+    }
+}
+
+// ===== ДИНАМІЧНІ СТИЛІ НА ОСНОВІ CSS-ЗМІННИХ =====
+* {
+    border-radius: var(--border-radius);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: var(--heading-size);
+}
+
+// ===== DRAG AND DROP СТИЛІ =====
+[draggable="true"] {
+    cursor: grab;
+    user-select: none;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    &.dragging {
+        opacity: 0.5;
+        transform: scale(0.95);
+        z-index: 1000;
+        .box-shadow(0, 10px, 30px, rgba(46, 117, 182, 0.4));
+    }
+
+    &.drag-over {
+        background-color: #e8f4fd;
+        border-top: 3px dashed @primary-color;
+        border-bottom: 3px dashed @primary-color;
+        .transition(all 0.2s);
+    }
+}
+
+// Стилі для колонок галереї при перетягуванні
+#gallery {
+    [draggable="true"] {
+        .transition(all 0.3s ease);
+
+        &:hover {
+            transform: translateY(-4px);
+            .box-shadow(0, 8px, 20px, rgba(46, 117, 182, 0.2));
+        }
+
+        &.drag-over {
+            transform: scale(1.02);
+            border-left: 4px solid @primary-color;
+            border-right: 4px solid @primary-color;
+        }
+    }
 }

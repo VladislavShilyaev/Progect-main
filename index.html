@@ -131,7 +131,36 @@ style="animation-delay:0.6s">
 </div>
 </section>
 
-    <section id="portfolio" class="py-5 portfolio-section">
+<!-- Панель кастомізації -->
+<div class="container mt-5 mb-5">
+    <div class="card" id="customPanel">
+        <div class="card-header bg-primary text-white">
+            <strong>🎨 Кастомізація інтерфейсу</strong>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">Основний колір (Hue)</label>
+                    <input type="range" id="hueSlider" class="form-range" min="0" max="360" value="210">
+                    <small class="text-muted" id="hueValue">Значення: 210°</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">Розмір шрифту заголовків</label>
+                    <input type="range" id="fontSlider" class="form-range" min="16" max="36" value="24">
+                    <small class="text-muted" id="fontValue">Значення: 24px</small>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <label class="form-label">border-radius (округлення)</label>
+                    <input type="range" id="radiusSlider" class="form-range" min="0" max="25" value="8">
+                    <small class="text-muted" id="radiusValue">Значення: 8px</small>
+                </div>
+            </div>
+            <button class="btn btn-secondary btn-sm" id="resetBtn">Скидання налаштувань</button>
+        </div>
+    </div>
+</div>
+
+<section id="portfolio" class="py-5 portfolio-section">
 <div class="container">
 <h2 class="text-center mb-4">Портфоліо</h2>
 <p class="text-center mb-4">Ознайомтесь з моїми роботами та проєктами, які демонструють підхід до дизайну та розробки.</p>
@@ -189,6 +218,10 @@ style="animation-delay:0.6s">
     <!-- Кастомний JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/storage.js"></script>
+    <!-- Персоналізація інтерфейсу -->
+    <script src="js/customization.js"></script>
+    <!-- Drag and Drop для галереї -->
+    <script src="js/drag-sort.js"></script>
     <!-- Scroll Reveal -->
     <script src="js/scroll-reveal.js"></script>
     <script src="js/smooth-scroll.js"></script>
